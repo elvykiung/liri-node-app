@@ -1,6 +1,7 @@
 var Spotify = require('node-spotify-api');
 
 var keys = require('./keys.js');
+var log = require('./logText');
 
 var spotifyThisSong = function(songQuery) {
   if (songQuery == null) {
@@ -20,7 +21,7 @@ var spotifyThisSong = function(songQuery) {
         artistNames += artists[i].name + ' ';
       }
 
-      console.table(`Artist(s) name : ${artistNames} \nSong Name      : ${songName}\nPreview Link   : ${previewLink} \nAlbum Name     : ${albumName} \n =====================`);
+      log(`Artist(s) name : ${artistNames} \nSong Name      : ${songName}\nPreview Link   : ${previewLink} \nAlbum Name     : ${albumName} \n =====================`);
     })
     .catch(function(err) {
       console.log(err);

@@ -1,4 +1,5 @@
 var axios = require('axios');
+var log = require('./logText');
 
 var movieName = function(commandsArgument) {
   axios
@@ -10,16 +11,7 @@ var movieName = function(commandsArgument) {
 
       var RottenTomatoesRating = Ratings[1].Value;
 
-      console.log(`
-      Title                  : ${Title}
-      Year                   : ${Year}
-      IMDB Rating            : ${imdbRating}
-      Rotten Tomatoes Rating : ${RottenTomatoesRating}
-      Country produced       : ${Country}
-      Language               : ${Language}
-      Plot                   : ${Plot}
-      Actors                 : ${Actors}
-      ========================================   
+      log(`Title                  : ${Title}\nYear                   : ${Year}\nIMDB Rating            : ${imdbRating}\nRotten Tomatoes Rating : ${RottenTomatoesRating}\nCountry produced       : ${Country}\nLanguage               : ${Language}\nPlot                   : ${Plot}\nActors                 : ${Actors}\n=======================================\n   
     `);
     })
     .catch(function(error) {

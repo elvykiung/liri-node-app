@@ -1,5 +1,6 @@
 require('dotenv').config();
 var fs = require('fs');
+var log = require('./logText');
 
 //===========================================
 var liriCommand = process.argv[2];
@@ -44,3 +45,8 @@ doLiriCommand();
 if (liriCommand === 'do-what-it-says') {
   doWhatItSay(commandsArgument);
 }
+
+//============================================Bonus
+
+var text = 'node liri.js ' + liriCommand + ' ' + commandsArgument + '\n';
+log(text);

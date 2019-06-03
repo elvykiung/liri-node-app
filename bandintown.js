@@ -1,5 +1,6 @@
 var axios = require('axios');
 var moment = require('moment');
+var log = require('./logText');
 
 var bandInTown = function(commandsArgument) {
   axios
@@ -12,7 +13,7 @@ var bandInTown = function(commandsArgument) {
         var venueCity = concert.venue.city;
         var venueCountry = concert.venue.country;
         var eventDate = moment(concert.datetime).format('MM/DD/YYYY');
-        console.log(`Name of the venue: ${venueName}\nVenue location   : ${venueCity}, ${venueCountry}\nDate of the Event: ${eventDate}\n======================================\n`);
+        log(`Name of the venue: ${venueName}\nVenue location   : ${venueCity}, ${venueCountry}\nDate of the Event: ${eventDate}\n======================================\n`);
       }
     })
     .catch(function(error) {
