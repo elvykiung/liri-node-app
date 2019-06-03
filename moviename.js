@@ -1,7 +1,14 @@
+//include the package and file import
 var axios = require('axios');
 var log = require('./logText');
 
+// function for movie name axios call
 var movieName = function(commandsArgument) {
+  //If the user doesn't type a movie i
+  if (commandsArgument == null) {
+    commandsArgument = 'Mr. Nobody';
+  }
+
   axios
     .get('http://www.omdbapi.com/?t=' + commandsArgument + '&apikey=trilogy')
     .then(function(response) {
@@ -11,9 +18,11 @@ var movieName = function(commandsArgument) {
 
       var RottenTomatoesRating = Ratings[1].Value;
 
+      //console log te data and append to log.txt
       log(`Title                  : ${Title}\nYear                   : ${Year}\nIMDB Rating            : ${imdbRating}\nRotten Tomatoes Rating : ${RottenTomatoesRating}\nCountry produced       : ${Country}\nLanguage               : ${Language}\nPlot                   : ${Plot}\nActors                 : ${Actors}\n=======================================\n   
     `);
     })
+    //if error
     .catch(function(error) {
       if (error.response) {
         console.log('---------------Data---------------');
@@ -30,4 +39,6 @@ var movieName = function(commandsArgument) {
       console.log(error.config);
     });
 };
+
+//make the code available to export
 module.exports = movieName;

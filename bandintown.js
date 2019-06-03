@@ -1,7 +1,9 @@
+//include the package and file import
 var axios = require('axios');
 var moment = require('moment');
 var log = require('./logText');
 
+// make a function to run axios call
 var bandInTown = function(commandsArgument) {
   axios
     .get('https://rest.bandsintown.com/artists/' + commandsArgument + '/events?app_id=codingbootcamp')
@@ -13,9 +15,12 @@ var bandInTown = function(commandsArgument) {
         var venueCity = concert.venue.city;
         var venueCountry = concert.venue.country;
         var eventDate = moment(concert.datetime).format('MM/DD/YYYY');
+
+        //console log te data and append to log.txt
         log(`Name of the venue: ${venueName}\nVenue location   : ${venueCity}, ${venueCountry}\nDate of the Event: ${eventDate}\n======================================\n`);
       }
     })
+    //if error
     .catch(function(error) {
       if (error.response) {
         console.log('---------------Data---------------');
@@ -33,4 +38,5 @@ var bandInTown = function(commandsArgument) {
     });
 };
 
+//make the code available to export
 module.exports = bandInTown;

@@ -1,17 +1,16 @@
+//include the package and file import
 require('dotenv').config();
 var fs = require('fs');
 var log = require('./logText');
+var spotifyThisSong = require('./spotifyThisSong');
+var bandInTown = require('./bandintown');
+var movieName = require('./moviename');
 
 //===========================================
 var liriCommand = process.argv[2];
 var commandsArgument = process.argv[3];
 //===========================================
 
-var spotifyThisSong = require('./spotifyThisSong');
-var bandInTown = require('./bandintown');
-var movieName = require('./moviename');
-
-//==================================================
 var doWhatItSay = function() {
   fs.readFile('random.txt', 'utf8', function(error, data) {
     if (error) {

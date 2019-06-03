@@ -1,5 +1,7 @@
+//include the package and file import
 var fs = require('fs');
 
+//function to log the console data and log text append
 var log = function(data) {
   console.log(data);
 
