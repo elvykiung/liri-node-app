@@ -20,7 +20,7 @@ which output
 - Venue location
 - Date of the Event
 
-![screenshot](./gif/concert.GIF)
+![screenshot](https://github.com/elvykiung/liri-node-app/blob/master/gif/concert.gif?raw=true)
 
 ### `spotify-this-song` "song name here"
 
@@ -33,7 +33,7 @@ which output
 
 p.s If no song is provided then Liri will default to "The Sign" by Ace of Base.
 
-![screenshot](./gif/song.GIF)
+![screenshot](https://github.com/elvykiung/liri-node-app/blob/master/gif/song.gif?raw=true)
 
 ### `movie-this` "movie name here"
 
@@ -50,13 +50,13 @@ which output
 
 p.s If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
 
-![screenshot](./gif/movie.GIF)
+![screenshot](https://github.com/elvykiung/liri-node-app/blob/master/gif/movie.gif?raw=true)
 
 ### `do-what-it-says`
 
 It will run any command that written in random.txt
 
-![screenshot](./gif/do.GIF)
+![screenshot](https://github.com/elvykiung/liri-node-app/blob/master/gif/do.gif?raw=true)
 
 ## Technologies
 
