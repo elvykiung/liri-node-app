@@ -1,12 +1,18 @@
 require('dotenv').config();
 
-var spotifyThisSong = require('./spotifyThisSong');
-
+//===========================================
 var liriCommand = process.argv[2];
 var commandsArgument = process.argv[3];
+//===========================================
+
+var spotifyThisSong = require('./spotifyThisSong');
+var bandInTown = require('./bandintown');
 
 //==================================================
-// spotifyThisSong function
+
+if (liriCommand === 'concert-this') {
+  bandInTown(commandsArgument);
+}
 
 if (liriCommand === 'spotify-this-song') {
   spotifyThisSong(commandsArgument);
