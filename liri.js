@@ -1,4 +1,5 @@
 require('dotenv').config();
+var fs = require('fs');
 
 //===========================================
 var liriCommand = process.argv[2];
@@ -10,15 +11,36 @@ var bandInTown = require('./bandintown');
 var movieName = require('./moviename');
 
 //==================================================
+var doWhatItSay = function() {
+  fs.readFile('random.txt', 'utf8', function(error, data) {
+    if (error) {
+      return console.log(error);
+    }
 
-if (liriCommand === 'concert-this') {
-  bandInTown(commandsArgument);
-}
+    var dataArr = data.split(',');
+    liriCommand = dataArr[0];
+    commandsArgument = dataArr[1];
 
-if (liriCommand === 'spotify-this-song') {
-  spotifyThisSong(commandsArgument);
-}
+    doLiriCommand();
+  });
+};
 
-if (liriCommand === 'movie-this') {
-  movieName(commandsArgument);
+var doLiriCommand = function() {
+  if (liriCommand === 'concert-this') {
+    bandInTown(commandsArgument);
+  }
+
+  if (liriCommand === 'spotify-this-song') {
+    spotifyThisSong(commandsArgument);
+  }
+
+  if (liriCommand === 'movie-this') {
+    movieName(commandsArgument);
+  }
+};
+
+doLiriCommand();
+
+if (liriCommand === 'do-what-it-says') {
+  doWhatItSay(commandsArgument);
 }
